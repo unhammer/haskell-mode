@@ -35,11 +35,10 @@
 
 (ert-deftest haskell-indentation-check-2 ()
     "Handle underscore in identifiers"
-    :expected-result :failed
     (haskell-indentation-check
      '("function = do"
        "  (_x) <- return ()"
-       "     z -- HERE")
+       " z -- HERE")
      '("function = do"
        "  (_x) <- return ()"
        "  z -- HERE")))
