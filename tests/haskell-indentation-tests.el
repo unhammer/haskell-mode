@@ -1,5 +1,6 @@
 (require 'ert)
 (require 'haskell-indentation)
+(require 'haskell-mode)
 (require 'cl-lib)
 
 
