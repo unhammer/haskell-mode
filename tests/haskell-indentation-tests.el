@@ -27,7 +27,6 @@
 
 (ert-deftest haskell-indentation-check-1 ()
     "Check if '{' on its own line gets properly indented"
-    :expected-result :failed
     (haskell-indentation-check
      '("function = Record"
        "     { field = 123 } -- HERE")
