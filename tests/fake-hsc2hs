@@ -7,7 +7,7 @@
 }
 
 !skip && !/^#include/ {
-    lines = lines $0"\n"
+    lines = lines $0\"\n\"
 }
 
 /}/ {
@@ -15,19 +15,19 @@
 }
 
 /A_TYPO/ {
-    print FILENAME":"NR":58: error: ‘A_TYPO’ undeclared (first use in this function)" >"/dev/stderr"
-    lines=""
+    print FILENAME\":\"NR\":58: error: ‘A_TYPO’ undeclared (first use in this function)\" >\"/dev/stderr\"
+    lines=\"\"
     exit(1)
 }
 
 END {
     if(lines) {
-        lines = lines "rand_max  :: NUMBERS\n"
-        lines = lines "rand_max  = NUMBERS 2147483647\n"
+        lines = lines \"rand_max  :: NUMBERS\n\"
+        lines = lines \"rand_max  = NUMBERS 2147483647\n\"
         hs = FILENAME
-        sub(/hsc$/, "hs", hs)
+        sub(/hsc$/, \"hs\", hs)
         if(FILENAME==hs) {
-            print FILENAME" doesn't seem to end in .hsc">"/dev/stderr"
+            print FILENAME\" doesn't seem to end in .hsc\">\"/dev/stderr\"
             exit(1)
         }
         else {
